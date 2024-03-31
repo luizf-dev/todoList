@@ -19,17 +19,22 @@ button.btn-del:hover{
     background-color: #e76f51;
 }
 
-button.btn-add{
-    margin-left: 10px;
-    background-color: #287271;
+button.btn-add{    
+    width: 50%;
+    margin: 25px 0 auto;
+    background-color: #81b29a;
     color: #000;
     font-weight: 900;
     font-size: 0.8em;
-    padding: 5px 10px;
+    padding: 10px ;
     border-radius: 5px;
     outline: none;
     border: 1px solid #000;
     cursor: pointer;
+}
+
+button.btn-add:hover{
+    background-color: #264653;
 }
 
 
