@@ -7,8 +7,9 @@ export const Todo = ({todo}) => {
             <div className="checkbox">
                 <input type="checkbox"/>
             </div>
-            <div className="content">
-                <p>{todo.text}</p>             
+            <div className="content">                
+                <h4>{todo.text}</h4>
+                <p>{todo.category}</p>             
             </div>
         </div>
         <div className="actions">
