@@ -9,7 +9,7 @@ function App() {
   //* essa constante guarda os dados estaticos para serem acessados
   //* como se estivessemos acessando uma api com dados de um banco de dados
   const [todos, setTodos] = useState([
-      {
+     /* {
         id: 1,
         text: "Fazer compras de supermercado",
         category: "(Compras)",
@@ -44,7 +44,7 @@ function App() {
         text: "Preparar apresentação para reunião ",
         category: "(Trabalho)",
         isCompleted: false
-      }
+      }*/
   ]);
 
   //*função para adicionar uma nova tarefa
@@ -59,13 +59,28 @@ function App() {
 
   setTodos(newTodos);
   }
+
+  //*função para remover uma tarefa
+  const deleteTodo = (id) => {
+    const newTodos = [...todos];
+    const filteredTodos = newTodos.filter(todo => todo.id !== id ? todo : null);
+    setTodos(filteredTodos);
+  }
+
+
+  //*função para marcar uma tarefa como completa
+  const completeTodo = (id) => {
+    const newTodos = [...todos];
+    newTodos.map((todo) => todo.id === id ? (todo.isCompleted = ! todo.isCompleted) : todo);
+    setTodos(newTodos);
+  }
   
   return (
     <div className='app'>
       <h1>Lista de Tarefas</h1>
       <div className="todo-list">
         {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo}/>         
+          <Todo key={todo.id} todo={todo} completeTodo={completeTodo} deleteTodo={deleteTodo}/>         
         ))}
       </div>
       <TodoForm addTodo={addTodo} />
